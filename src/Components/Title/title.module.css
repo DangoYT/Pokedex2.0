@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@600;700&family=Space+Grotesk:wght@500&display=swap');
+
+.title_container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+  background-color: red;
+}
+
+.pokeball {
+  width: 24px;
+  height: 24px;
+  color: #ffffff;
+}
+
+.title {
+  color: var(--grayscale-white, #fff);
+
+  /* Header/Headline */
+  font-family: Poppins;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px; /* 133.333% */
+}
