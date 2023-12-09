@@ -1,0 +1,16 @@
+.pokelist {
+  display: flex;
+  padding: 24px 12px 0px 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  flex: 1 0 0;
+  align-self: stretch;
+  border-radius: 8px;
+  background: var(--grayscale-white, #fff);
+
+  /* Inner Shadow/2 dp */
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.25) inset;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
