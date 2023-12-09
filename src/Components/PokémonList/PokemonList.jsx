@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import style from './pokemonlist.module.css'
 export default function PokemonList() {
     const pokeApi = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=9';
     const [pokemonList, setPokemonList] = useState([]);
@@ -27,7 +27,7 @@ export default function PokemonList() {
     }, []);
 
     return (
-        <div>
+        <div className= {style.pokelist}>
             {pokemonList.map((pokemon) => (
                 <div key={pokemon.id}>
                     <img src={pokemon.sprites.front_default} alt="" />
