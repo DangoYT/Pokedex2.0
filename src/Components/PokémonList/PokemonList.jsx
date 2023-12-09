@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export default function PokemonList() {
+export default function PokemonList({ pokemon }) {
     const pokeApi = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=9';
     const [pokemonList, setPokemonList] = useState([]);
+    const navigate = useNavigate();
+    const handleClick = (p) => {
+        navigate('/pokemonCard', { state: p });
+    };
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(pokeApi); // Corregido el nombre de la variable
+                const response = await fetch(pokeApi);
                 const data = await response.json();
 
                 // Obtener detalles para cada Pokémon en la lista
@@ -29,8 +34,8 @@ export default function PokemonList() {
     return (
         <div>
             {pokemonList.map((pokemon) => (
-                <div key={pokemon.id}>
-                    <img src={pokemon.sprites.front_default} alt="" />
+                <div onClick={() => handleClick(pokemon)}  key={pokemon.id}>
+                    <img src={pokemon.sprites.other["official-artwork"].front_default} alt="" />
                     <p>Nombre: {pokemon.name}</p>
                     <p>Altura: {pokemon.height}</p>
                     <p>Peso: {pokemon.weight}</p>
