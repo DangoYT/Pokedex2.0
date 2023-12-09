@@ -5,11 +5,20 @@ import PokemonList from './Components/PokémonList/PokemonList'
 import Title from './Components/Title/Title'
 
 function App() {
+
+  const [appPokemonList, setAppPokemonList] = useState([]);
+
+  const updatePokemonList = (newPokemonList) => {
+    setAppPokemonList(newPokemonList);
+  };
+
+
+
   return (
     <>
-      <Title/>
-      <Search />
-      <PokemonList />
+      <Title />
+      <Search listaPokemons = {appPokemonList}/>
+      <PokemonList onPokemonListChange={updatePokemonList} />
     </>
   );
 }

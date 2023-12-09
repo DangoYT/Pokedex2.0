@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import style from './pokemonlist.module.css'
 
-export default function PokemonList() {
+export default function PokemonList({ onPokemonListChange }) {
     const pokeApi = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=9';
     const [pokemonList, setPokemonList] = useState([]);
     const navigate = useNavigate();
@@ -24,13 +24,20 @@ export default function PokemonList() {
 
                 const detailedPokemonData = await Promise.all(promises);
                 setPokemonList(detailedPokemonData);
+
+                onPokemonListChange(detailedPokemonData);
+
             } catch (error) {
                 console.error('Error al obtener datos de la API:', error);
             }
+
+
+
         };
 
         fetchData();
     }, []);
+
 
     return (
         <div className={style.pokelist}>
