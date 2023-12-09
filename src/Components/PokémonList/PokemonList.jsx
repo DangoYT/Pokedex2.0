@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-export default function PokemonList({ pokemon }) {
 import style from './pokemonlist.module.css'
+
 export default function PokemonList() {
     const pokeApi = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=9';
     const [pokemonList, setPokemonList] = useState([]);
@@ -34,13 +33,12 @@ export default function PokemonList() {
     }, []);
 
     return (
-        <div className= {style.pokelist}>
+        <div className={style.pokelist}>
             {pokemonList.map((pokemon) => (
-                <div onClick={() => handleClick(pokemon)}  key={pokemon.id}>
+                <div onClick={() => handleClick(pokemon)} key={pokemon.id}>
+                    <p>#00{pokemon.id}</p>
                     <img src={pokemon.sprites.other["official-artwork"].front_default} alt="" />
-                    <p>Nombre: {pokemon.name}</p>
-                    <p>Altura: {pokemon.height}</p>
-                    <p>Peso: {pokemon.weight}</p>
+                    <p>{pokemon.name}</p>
                 </div>
             ))}
         </div>
