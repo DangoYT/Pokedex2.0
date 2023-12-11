@@ -42,9 +42,9 @@ export default function PokemonList({ onPokemonListChange }) {
     return (
         <div className={style.pokelist}>
             {pokemonList.map((pokemon) => (
-                <div onClick={() => handleClick(pokemon)} key={pokemon.id}>
+                <div className={style.pokeitem} onClick={() => handleClick(pokemon)} key={pokemon.id}>
                     <p>#00{pokemon.id}</p>
-                    <img src={pokemon.sprites.other["official-artwork"].front_default} alt="" />
+                    <img className={style.pokeimage} src={pokemon.sprites.other["official-artwork"].front_default} alt="" />
                     <p>{pokemon.name}</p>
                 </div>
             ))}
