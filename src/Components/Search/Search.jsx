@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import style from './search.module.css'
 export default function Search({ listaPokemons }) {
     // Estado local para el término de búsqueda
     const [searchTerm, setSearchTerm] = useState('');
@@ -17,6 +17,7 @@ export default function Search({ listaPokemons }) {
     return (
         <div>
             <input
+                className={style.pokesearch}
                 type="text"
                 value={searchTerm}
                 onChange={handleInputChange}
