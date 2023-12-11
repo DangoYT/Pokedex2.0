@@ -1,17 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@600;700&family=Space+Grotesk:wght@500&display=swap");
+
 .pokelist {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 24px 12px 0px 12px;
   gap: 8px;
   border-radius: 8px;
-  background:#fff;
-  background-color: aqua;
+  background: #fff;
   align-items: center;
   text-align: center;
   justify-content: space-evenly;
   /* Inner Shadow/2 dp */
   box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.25) inset;
-  padding-left: 50px;
+  padding-left: 60px;
   padding-bottom: 20px;
 }
 
@@ -31,11 +32,35 @@
 
 .pokeimage {
   display: flex;
-  width: 272px;
-  height: 272px;
+  width: 292px;
+  height: 292px;
   justify-content: center;
   align-items: center;
   /* position: absolute;*/
   left: 16px;
   top: 16px;
+}
+
+.pokeid {
+  color: var(--grayscale-medium, #666);
+  text-align: right;
+
+  /* Body/Caption */
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px; /* 150% */
+}
+
+.pokename {
+  color: var(--grayscale-dark, #1d1d1d);
+  text-align: center;
+
+  /* Body/Body 3 */
+  font-family: Poppins;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 160% */
 }
