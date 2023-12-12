@@ -52,15 +52,16 @@ export default function Search({ listaPokemons, onFilteredPokemonsChange}) {
             onClick={handleClearClick}
           />
         )}
+        <div className={style.pokefilter}>
+          <img
+            className={style.pokefilterimg}
+            src="images_figma/filter.svg"
+            alt=""
+            onClick={handleFilterClick}
+          />
+        </div>
       </div>
-      <div className={style.pokefilter}>
-        <img
-          className={style.pokefilterimg}
-          src="images_figma/filter.svg"
-          alt=""
-          onClick={handleFilterClick}
-        />
-      </div>
+
       {/* Mostrar resultados filtrados */}
       
       {isModalOpen && (
