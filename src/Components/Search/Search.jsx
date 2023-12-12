@@ -51,15 +51,16 @@ export default function Search({ listaPokemons }) {
             onClick={handleClearClick}
           />
         )}
+        <div className={style.pokefilter}>
+          <img
+            className={style.pokefilterimg}
+            src="images_figma/filter.svg"
+            alt=""
+            onClick={handleFilterClick}
+          />
+        </div>
       </div>
-      <div className={style.pokefilter}>
-        <img
-          className={style.pokefilterimg}
-          src="images_figma/filter.svg"
-          alt=""
-          onClick={handleFilterClick}
-        />
-      </div>
+
       {/* Mostrar resultados filtrados */}
       {searchTerm && (
         <div className={style.searchresults}>
