@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import style from './pokemonlist.module.css'
 
-export default function PokemonList({ onPokemonListChange }) {
+export default function PokemonList({ onPokemonListChange, listafiltrada }) {
     const pokeApi = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=9';
     const [pokemonList, setPokemonList] = useState([]);
     const navigate = useNavigate();
@@ -41,7 +41,7 @@ export default function PokemonList({ onPokemonListChange }) {
 
     return (
         <div className={style.pokelist}>
-            {pokemonList.map((pokemon) => (
+            {listafiltrada.map((pokemon) => (
                 <div className={style.pokeitem} onClick={() => handleClick(pokemon)} key={pokemon.id}>
                     <p className={style.pokeid} >#00{pokemon.id}</p>
                     <img className={style.pokeimage} src={pokemon.sprites.other["official-artwork"].front_default} alt="" />

@@ -2,7 +2,7 @@
 
 .pokelist {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 408px 408px 408px;
   padding: 24px 12px 0px 12px;
   gap: 8px;
   border-radius: 8px;
@@ -12,7 +12,6 @@
   justify-content: space-evenly;
   /* Inner Shadow/2 dp */
   box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.25) inset;
-  
   padding-bottom: 20px;
 }
 

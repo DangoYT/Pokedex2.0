@@ -1,18 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./search.module.css";
-export default function Search({ listaPokemons }) {
+export default function Search({ listaPokemons, onFilteredPokemonsChange}) {
   // Estado local para el término de búsqueda
   const [searchTerm, setSearchTerm] = useState("");
-
+  const [filteredPokemons, setFilteredPokemons] = useState([]);
   // Función para manejar cambios en el campo de búsqueda
   const handleInputChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  // Filtrar la lista de Pokémon según el término de búsqueda
-  const filteredPokemons = listaPokemons.filter((pokemon) =>
-    pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  useEffect(() => {
+    const filteredPokemons = listaPokemons.filter((pokemon) =>
+      pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    setFilteredPokemons(filteredPokemons);
+
+    onFilteredPokemonsChange(filteredPokemons);
+  }, [listaPokemons, searchTerm]);
 
   const handleClearClick = () => {
     setSearchTerm("");
@@ -28,10 +33,6 @@ export default function Search({ listaPokemons }) {
     setIsModalOpen(false);
   };
 
-  console.log(
-    "este es el resultado de los pokemons filtrados",
-    filteredPokemons
-  );
   return (
     <div>
       <div className={style.pokesearch}>
@@ -61,16 +62,7 @@ export default function Search({ listaPokemons }) {
         />
       </div>
       {/* Mostrar resultados filtrados */}
-      {searchTerm && (
-        <div className={style.searchresults}>
-          <h2>Resultados de la búsqueda:</h2>
-          <ul>
-            {filteredPokemons.map((pokemon) => (
-              <li key={pokemon.id}>{pokemon.name}</li>
-            ))}
-          </ul>
-        </div>
-      )}
+      
       {isModalOpen && (
         <div className={style.pokemodal}>
           <div className={style.modalContent}>
