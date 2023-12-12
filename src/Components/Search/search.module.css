@@ -11,6 +11,7 @@
 
   /* Inner Shadow/2 dp */
   box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.25) inset;
+  margin-bottom: 50px;
 }
 
 .pokelupa {
@@ -33,4 +34,20 @@
 .pokeclose{
     width: 20px;
     height: 20px;
+}
+
+.pokefilterimg{
+    width: 20px;
+    height: 20px;
+}
+
+.pokemodal{
+  background-color: #DC0A2D;
+}
+
+.sortoptions{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #fff;
 }

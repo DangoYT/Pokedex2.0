@@ -18,6 +18,16 @@ export default function Search({ listaPokemons }) {
     setSearchTerm("");
   };
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleFilterClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   console.log(
     "este es el resultado de los pokemons filtrados",
     filteredPokemons
@@ -42,15 +52,42 @@ export default function Search({ listaPokemons }) {
           />
         )}
       </div>
-      {/* Mostrar resultados filtrados */}
-      <div>
-        <h2>Resultados de la búsqueda:</h2>
-        <ul>
-          {filteredPokemons.map((pokemon) => (
-            <li key={pokemon.id}>{pokemon.name}</li>
-          ))}
-        </ul>
+      <div className={style.pokefilter}>
+        <img
+          className={style.pokefilterimg}
+          src="images_figma/filter.svg"
+          alt=""
+          onClick={handleFilterClick}
+        />
       </div>
+      {/* Mostrar resultados filtrados */}
+      {searchTerm && (
+        <div className={style.searchresults}>
+          <h2>Resultados de la búsqueda:</h2>
+          <ul>
+            {filteredPokemons.map((pokemon) => (
+              <li key={pokemon.id}>{pokemon.name}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {isModalOpen && (
+        <div className={style.pokemodal}>
+          <div className={style.modalContent}>
+            {/* Contenido del modal */}
+            <span className={style.close} onClick={closeModal}>
+              &times;
+              <h2 className={style.sorttitle}>Filtrar por nombre</h2>
+              <div className={style.sortoptions}>
+                <label htmlFor="number">Number</label>
+                <input name="sort" id="number" type="radio" />
+                <label htmlFor="name">Name</label>
+                <input name="sort" id="name" type="radio" />
+              </div>
+            </span>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
