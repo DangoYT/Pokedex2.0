@@ -1,11 +1,12 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom';
+import style from './pokemoncard.module.css'
 export default function PokemonCard() {
     const location = useLocation();
     const pokemon = location.state;
     console.log(pokemon);
   return (
-    <div>
+    <div className={style[pokemon.types[0].type.name]}>
       <p className="pokemon__name">{pokemon.name}</p>
             <span className="pokemon__id">{pokemon.id}</span>
             <img className="pokemon__image" src={pokemon.sprites.other["official-artwork"].front_default} alt="" />

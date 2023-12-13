@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import style from './pokemonlist.module.css'
 
 export default function PokemonList({ onPokemonListChange, listafiltrada }) {
-    const pokeApi = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=9';
+    const pokeApi = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=380';
     const [pokemonList, setPokemonList] = useState([]);
     const navigate = useNavigate();
     const handleClick = (p) => {
@@ -67,14 +67,6 @@ export default function PokemonList({ onPokemonListChange, listafiltrada }) {
     return (
         <div className={style.pokelist}>
 
-            <div className={style.pokefilter}>
-                <img
-                    className={style.pokefilterimg}
-                    src="images_figma/filter.svg"
-                    alt=""
-                    onClick={handleFilterClick}
-                />
-            </div>
             {radioSeleccionado === 'opcion1'
                 ? sortedListByName.map((pokemon) => (
                     <div className={style.pokeitem} onClick={() => handleClick(pokemon)} key={pokemon.id}>
