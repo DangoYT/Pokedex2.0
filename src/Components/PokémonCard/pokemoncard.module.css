@@ -1,7 +1,14 @@
 .grass{
     background-color: aqua;
+    border: 1px solid black;
 }
+
 
 .fire {
     background-color: orangered;
+    color: orangered;
+}
+
+.contenedor {
+    background-color: white;
 }
