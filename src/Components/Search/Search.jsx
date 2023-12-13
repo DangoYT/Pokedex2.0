@@ -1,37 +1,42 @@
 import React, { useState, useEffect } from "react";
 import style from "./search.module.css";
-export default function Search({ listaPokemons, onFilteredPokemonsChange}) {
+export default function Search({ listaPokemons, onFilteredPokemonsChange }) {
   // Estado local para el término de búsqueda
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredPokemons, setFilteredPokemons] = useState([]);
+  const [filterBy, setFilterBy] = useState("name");
   // Función para manejar cambios en el campo de búsqueda
   const handleInputChange = (event) => {
     setSearchTerm(event.target.value);
   };
+  const handleFilterChange = (event) => {
+    setFilterBy(event.target.value);
+  };
 
   useEffect(() => {
-    const filteredPokemons = listaPokemons.filter((pokemon) =>
-      pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    const filteredPokemons = listaPokemons.filter((pokemon) => {
+      const searchTermLowerCase = searchTerm.toLowerCase();
+
+      if (filterBy === "name") {
+        return pokemon.name.toLowerCase().includes(searchTermLowerCase);
+      } else if (filterBy === "id") {
+        // Filtrar por ID si el término de búsqueda es un número y coincide con el ID del pokemon
+        const searchTermAsNumber = parseInt(searchTerm, 10);
+        return !isNaN(searchTermAsNumber) && pokemon.id === searchTermAsNumber;
+      }
+
+      return false;
+    });
 
     setFilteredPokemons(filteredPokemons);
-
     onFilteredPokemonsChange(filteredPokemons);
-  }, [listaPokemons, searchTerm]);
+  }, [listaPokemons, searchTerm, filterBy]);
 
   const handleClearClick = () => {
     setSearchTerm("");
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleFilterClick = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  
 
   return (
     <div>
@@ -57,30 +62,14 @@ export default function Search({ listaPokemons, onFilteredPokemonsChange}) {
             className={style.pokefilterimg}
             src="images_figma/filter.svg"
             alt=""
-            onClick={handleFilterClick}
+            /* onClick={handleFilterClick} */
           />
         </div>
       </div>
 
       {/* Mostrar resultados filtrados */}
+
       
-      {isModalOpen && (
-        <div className={style.pokemodal}>
-          <div className={style.modalContent}>
-            {/* Contenido del modal */}
-            <span className={style.close} onClick={closeModal}>
-              &times;
-              <h2 className={style.sorttitle}>Filtrar por nombre</h2>
-              <div className={style.sortoptions}>
-                <label htmlFor="number">Number</label>
-                <input name="sort" id="number" type="radio" />
-                <label htmlFor="name">Name</label>
-                <input name="sort" id="name" type="radio" />
-              </div>
-            </span>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

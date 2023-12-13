@@ -15,7 +15,6 @@ function App() {
     setFilteredPokemons(filteredPokemons);
   };
 
-  console.log("Hola soy la lista de pokemons filtrada en el app",filteredPokemons);
   return (
     <>
       <Title />

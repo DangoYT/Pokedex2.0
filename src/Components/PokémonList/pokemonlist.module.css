@@ -64,3 +64,20 @@
   font-weight: 400;
   line-height: 16px; /* 160% */
 }
+
+.pokefilter {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+}
+.pokefilterimg {
+  height: 50px;
+  width: 50px;
+}
+
+.pokemodal {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  border: 1px solid black;
+}
