@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import style from './pokemonlist.module.css'
 
 export default function PokemonList({ onPokemonListChange, listafiltrada }) {
-    const pokeApi = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=380';
+    const pokeApi = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=9';
     const [pokemonList, setPokemonList] = useState([]);
     const navigate = useNavigate();
     const handleClick = (p) => {
