@@ -13,6 +13,23 @@
     background-color: white;
 }
 
-.pepito p { 
-    
+.pokestatscontainer{
+    display: flex;
+    border: 2px black solid;
+    gap: 5px;
+}
+
+.pokestats{
+    font: 400;
+}
+
+.pokestatsvalues{
+    font: 400;
+}
+
+.pokestatsbars{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 15px;
 }
