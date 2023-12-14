@@ -37,30 +37,22 @@ export default function PokemonList({ onPokemonListChange, listafiltrada }) {
 
     useEffect(() => {
         const fetchData = async () => {
-            try {
-                const response = await fetch(pokeApi);
-                const data = await response.json();
 
-                // Obtener detalles para cada Pokémon en la lista
-                const promises = data.results.map(async (pokemon) => {
-                    const pokemonResponse = await fetch(pokemon.url);
-                    return pokemonResponse.json();
-                });
+            const response = await fetch(pokeApi);
+            const data = await response.json();
 
-                const detailedPokemonData = await Promise.all(promises);
-                setPokemonList(detailedPokemonData);
+            // Obtener detalles para cada Pokémon en la lista
+            const promises = data.results.map(async (pokemon) => {
+                const pokemonResponse = await fetch(pokemon.url);
+                return pokemonResponse.json();
+            });
 
-                onPokemonListChange(detailedPokemonData);
+            const detailedPokemonData = await Promise.all(promises);
+            setPokemonList(detailedPokemonData);
 
-            } catch (error) {
-                console.error('Error al obtener datos de la API:', error);
-            }
-
-
-
+            onPokemonListChange(detailedPokemonData);
         };
-
-        fetchData();
+        fetchData()
     }, []);
 
 

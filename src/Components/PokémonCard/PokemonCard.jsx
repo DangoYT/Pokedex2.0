@@ -1,10 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import style from './pokemoncard.module.css'
 export default function PokemonCard() {
     const location = useLocation();
     const pokemon = location.state;
     console.log(pokemon);
+    const [pokedescription, setPokedescription] = useState("")
+
+    const obternerDescripcion = async () => {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemon.id}/`)
+        const data = await response.json()
+        /* console.log("aca data",data.flavor_text_entries[0].flavor_text); */
+        setPokedescription(data.flavor_text_entries[10].flavor_text)
+    }
+
+    useEffect(() => {
+        obternerDescripcion()
+    }, [])
+
     return (
         <div className={`${style[pokemon.types[0].type.name]} `}>
 
@@ -20,6 +33,11 @@ export default function PokemonCard() {
 
                 <p className="pokemon__height">{pokemon.height}</p>
                 <p className="pokemon__weight">{pokemon.weight}</p>
+                
+
+                <p>
+                    {pokedescription}
+                </p>
 
                 <ul className="pokemon__abilities">
                     {pokemon.abilities.map((ability, index) => (
