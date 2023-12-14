@@ -8,6 +8,7 @@ export default function PokemonCard() {
 
 
   const [pokedescription, setPokedescription] = useState("")
+  const [pokeGift, setPokeGift] = useState("")
 
   const obternerDescripcion = async () => {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemon.id}/`)
@@ -16,8 +17,16 @@ export default function PokemonCard() {
     setPokedescription(data.flavor_text_entries[10].flavor_text)
   }
 
+  const obtenerGif = async () => {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.id}`)
+    const gift = await response.json()
+    console.log("aca los gift",gift.sprites.versions["generation-v"]["black-white"].animated.front_default);
+    setPokeGift(gift.sprites.versions["generation-v"]["black-white"].animated.front_default)
+  }
+
   useEffect(() => {
     obternerDescripcion()
+    obtenerGif()
   }, [])
 
   return (
@@ -26,6 +35,7 @@ export default function PokemonCard() {
       <p className="pokemon__name">{pokemon.name}</p>
       <span className="pokemon__id">{pokemon.id}</span>
       <img className="pokemon__image" src={pokemon.sprites.other["official-artwork"].front_default} alt="" />
+      <img src={pokeGift} alt="" />
       <div className={style.contenedor}>
         <ul className="pokemon__types">
           {pokemon.types.map((type, index) => (

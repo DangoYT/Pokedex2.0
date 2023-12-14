@@ -65,6 +65,7 @@ export default function PokemonList({ onPokemonListChange, listafiltrada }) {
                         <p className={style.pokeid}>#00{pokemon.id}</p>
                         <img className={style.pokeimage} src={pokemon.sprites.other["official-artwork"].front_default} alt="" />
                         <p className={style.pokename}>{pokemon.name}</p>
+                        {/* <img src={pokemon.sprite.versions.generation-v.black-white.animated.front_default} alt="" /> */}
                     </div>
                 ))
                 : sortedListById.map((pokemon) => (
@@ -72,6 +73,7 @@ export default function PokemonList({ onPokemonListChange, listafiltrada }) {
                         <p className={style.pokeid}>#00{pokemon.id}</p>
                         <img className={style.pokeimage} src={pokemon.sprites.other["official-artwork"].front_default} alt="" />
                         <p className={style.pokename}>{pokemon.name}</p>
+                        {/* <img src={pokemon.sprite.versions.generation-v.black-white.animated.front_default} alt="" /> */}
                     </div>
                 ))
             }
