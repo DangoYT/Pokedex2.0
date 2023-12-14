@@ -39,77 +39,48 @@ export default function PokemonCard() {
         <p>
           {pokedescription}
         </p>
-
-        <ul className="pokemon__abilities">
-          {pokemon.abilities.map((ability, index) => (
-            <li key={index} className="pokemon__ability">
-              {ability.ability.name}
-            </li>
-          ))}
-        </ul>
         <div>
-          <div>
+          <ul className="pokemon__abilities">
+            {pokemon.abilities.map((ability, index) => (
+              <li key={index} className="pokemon__ability">
+                {ability.ability.name}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className={style.pokestatscontainer}>
+
+          <div className={style.pokestats}>
+            <p>HP</p>
+            <p>ATK</p>
+            <p>DEF</p>
+            <p>SATK</p>
+            <p>SDEF</p>
+            <p>SPD</p>
+          </div>
+          <div className={style.pokestatsvalues}>
+            {pokemon.stats.map((stat, index) => (
+              <p className="pokemon__stats" key={index}>
+                {stat.base_stat}
+              </p>
+            ))}
+          </div>
+          <div className={style.pokestatsbars}>
             {pokemon.stats.map((stat, index) => (
               <input
+                key={index}
                 type="range"
                 id="slider"
                 name="slider"
                 min="0"
-                max="100"
+                max="252"
                 step="1"
                 value={stat.base_stat}
               />
             ))}
           </div>
-          <div>
-            {pokemon.stats.map((stat, index) => (
-              <p className="pokemon__stats" key={index}>{stat.base_stat}</p>
-            ))}
-          </div>
-
-        </div>
-      </div>
-
-      <ul className="pokemon__abilities">
-        {pokemon.abilities.map((ability, index) => (
-          <li key={index} className="pokemon__ability">
-            {ability.ability.name}
-          </li>
-        ))}
-      </ul>
-      <div className={style.pokestatscontainer}>
-
-        <div className={style.pokestats}>
-          <p>HP</p>
-          <p>ATK</p>
-          <p>DEF</p>
-          <p>SATK</p>
-          <p>SDEF</p>
-          <p>SPD</p>
-        </div>
-        <div className={style.pokestatsvalues}>
-          {pokemon.stats.map((stat, index) => (
-            <p className="pokemon__stats" key={index}>
-              {stat.base_stat}
-            </p>
-          ))}
-        </div>
-        <div className={style.pokestatsbars}>
-          {pokemon.stats.map((stat, index) => (
-            <input
-              key={index}
-              type="range"
-              id="slider"
-              name="slider"
-              min="0"
-              max="252"
-              step="1"
-              value={stat.base_stat}
-            />
-          ))}
         </div>
       </div>
     </div>
-    
   )
 };
