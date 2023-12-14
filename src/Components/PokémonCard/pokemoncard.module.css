@@ -1,12 +1,22 @@
-.grass{
-    background-color: aqua;
-    border: 1px solid black;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@600;700&family=Space+Grotesk:wght@500&display=swap');
+*{
+    border: solid 1px black;
 }
 
+.grass{
+    background-color: #74CB48;
+    border: 1px solid black;
+    font-family: poppins;
+    color: #74CB48;
+}
+.grass p{
+    background-color: white;
+}
 
 .fire {
     background-color: orangered;
     color: black;
+    font-family: poppins;
 }
 
 .contenedor {
