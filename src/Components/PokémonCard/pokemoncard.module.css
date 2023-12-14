@@ -1,13 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@600;700&family=Space+Grotesk:wght@500&display=swap');
-*{
-    border: solid 1px black;
-}
+
 
 .grass{
     background-color: #74CB48;
     border: 1px solid black;
     font-family: poppins;
     color: #74CB48;
+}
+
+.poison{
+    background-color: #B97FC9;
+    color: #B97FC9;
 }
 .grass p{
     background-color: white;
@@ -42,4 +45,13 @@
     flex-direction: column;
     gap: 20px;
     padding-top: 15px;
+}
+
+.statvalues{
+    color: black;
+}
+
+.padre{
+    position: absolute;
+    z-index: 1;
 }

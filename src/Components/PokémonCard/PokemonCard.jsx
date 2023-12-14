@@ -51,82 +51,96 @@ export default function PokemonCard() {
       {pokemonArray.map((pokemon) => (
         <SwiperSlide key={pokemon.id}>
           <div className={`${style[pokemon.types[0].type.name]} `}>
-            <p className="pokemon__name">{pokemon.name}</p>
-            <span className="pokemon__id">{pokemon.id}</span>
-            <img
-              className="pokemon__image"
-              src={pokemon.sprites.other["official-artwork"].front_default}
-              alt=""
-            />
-            <img src={pokeGift} alt="" />
-            <div className={style.contenedor}>
-              <ul className="pokemon__types">
-                {pokemon.types.map((type, index) => (
-                  <li
-                    key={index}
-                    className={`${style[pokemon.types[0].type.name]} ${
-                      style.contenedor
-                    }`}
-                  >
-                    {type.type.name}
-                  </li>
-                ))}
-              </ul>
-              <h2 className={style.pokeabout}>About</h2>
-              <div>
-                <div>
-                  <p className="pokemon__height">{pokemon.height}</p>
-                </div>
-                <div>
-                  {" "}
-                  <p className="pokemon__weight">{pokemon.weight}</p>
-                </div>
-
-                <div>
-                  <ul className="pokemon__abilities">
-                    {pokemon.abilities.map((ability, index) => (
-                      <li key={index} className="pokemon__ability">
-                        {ability.ability.name}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            
-              <div>
-                <p>{pokedescription}</p>
-              </div>
-
-              <div className={style.pokestatscontainer}>
-                <div className={style.pokestats}>
-                  <p className={`${style[pokemon.types[0].type.name]} `}>HP</p>
-                  <p className={`${style[pokemon.types[0].type.name]} `}>ATK</p>
-                  <p className={`${style[pokemon.types[0].type.name]} `}>DEF</p>
-                  <p className={`${style[pokemon.types[0].type.name]} `}>SATK</p>
-                  <p className={`${style[pokemon.types[0].type.name]} `}>SDEF</p>
-                  <p className={`${style[pokemon.types[0].type.name]} `}>SPD</p>
-                </div>
-                <div className={style.pokestatsvalues}>
-                  {pokemon.stats.map((stat, index) => (
-                    <p className="pokemon__stats" key={index}>
-                      {stat.base_stat}
-                    </p>
-                  ))}
-                </div>
-                <div className={style.pokestatsbars}>
-                  {pokemon.stats.map((stat, index) => (
-                    <input
+            <div className={style.padre}>
+              <p className="pokemon__name">{pokemon.name}</p>
+              <span className="pokemon__id">{pokemon.id}</span>
+              <img
+                className="pokemon__image"
+                src={pokemon.sprites.other["official-artwork"].front_default}
+                alt=""
+              />
+              <img src={pokeGift} alt="" />
+              <div className={style.contenedor}>
+                <ul className="pokemon__types">
+                  {pokemon.types.map((type, index) => (
+                    <li
                       key={index}
-                      type="range"
-                      id={`slider-${index}`}
-                      name={`slider-${index}`}
-                      min="0"
-                      max="252"
-                      step="1"
-                      value={stat.base_stat}
-                      readOnly
-                    />
+                      className={`${style[pokemon.types[0].type.name]} ${
+                        style.contenedor
+                      }`}
+                    >
+                      {type.type.name}
+                    </li>
                   ))}
+                </ul>
+                <h2 className={style.pokeabout}>About</h2>
+                <div>
+                  <div>
+                    <p className="pokemon__height">{pokemon.height}</p>
+                  </div>
+                  <div>
+                    {" "}
+                    <p className="pokemon__weight">{pokemon.weight}</p>
+                  </div>
+
+                  <div>
+                    <ul className="pokemon__abilities">
+                      {pokemon.abilities.map((ability, index) => (
+                        <li key={index} className="pokemon__ability">
+                          {ability.ability.name}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div>
+                  <p>{pokedescription}</p>
+                </div>
+
+                <div className={style.pokestatscontainer}>
+                  <div className={style.pokestats}>
+                    <p className={`${style[pokemon.types[0].type.name]} `}>
+                      HP
+                    </p>
+                    <p className={`${style[pokemon.types[0].type.name]} `}>
+                      ATK
+                    </p>
+                    <p className={`${style[pokemon.types[0].type.name]} `}>
+                      DEF
+                    </p>
+                    <p className={`${style[pokemon.types[0].type.name]} `}>
+                      SATK
+                    </p>
+                    <p className={`${style[pokemon.types[0].type.name]} `}>
+                      SDEF
+                    </p>
+                    <p className={`${style[pokemon.types[0].type.name]} `}>
+                      SPD
+                    </p>
+                  </div>
+                  <div className={style.pokestatsvalues}>
+                    {pokemon.stats.map((stat, index) => (
+                      <p className={style.statvalues} key={index}>
+                        {stat.base_stat}
+                      </p>
+                    ))}
+                  </div>
+                  <div className={style.pokestatsbars}>
+                    {pokemon.stats.map((stat, index) => (
+                      <input
+                        key={index}
+                        type="range"
+                        id={`slider-${index}`}
+                        name={`slider-${index}`}
+                        min="0"
+                        max="252"
+                        step="1"
+                        value={stat.base_stat}
+                        readOnly
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
