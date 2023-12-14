@@ -7,6 +7,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import PokemonCard from './Components/PokémonCard/PokemonCard.jsx';
+import { register } from 'swiper/element/bundle';
+
+register();
 
 
 const router = createBrowserRouter([

@@ -7,7 +7,8 @@ export default function PokemonList({ onPokemonListChange, listafiltrada }) {
     const [pokemonList, setPokemonList] = useState([]);
     const navigate = useNavigate();
     const handleClick = (p) => {
-        navigate('/pokemonCard', { state: p });
+        navigate('/pokemonCard', { state: { selectedPokemon: p, filteredList: listafiltrada } });
+        /* navigate('/pokemonCard', { state: p }); */
     };
 
     const [radioSeleccionado, setRadioSeleccionado] = useState(null);
