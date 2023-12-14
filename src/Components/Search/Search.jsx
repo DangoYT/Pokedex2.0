@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import style from "./search.module.css";
-export default function Search({ listaPokemons, onFilteredPokemonsChange }) {
+export default function Search({ listaPokemons, onFilteredPokemonsChange, onRadioChange}) {
   // Estado local para el término de búsqueda
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredPokemons, setFilteredPokemons] = useState([]);
@@ -12,6 +12,25 @@ export default function Search({ listaPokemons, onFilteredPokemonsChange }) {
   const handleFilterChange = (event) => {
     setFilterBy(event.target.value);
   };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleFilterClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const [radioSeleccionado, setRadioSeleccionado] = useState('opcion');
+  const manejarCambioRadio = (event) => {
+    const valor = event.target.value;
+    setRadioSeleccionado(valor);
+    onRadioChange(valor);
+
+  };
+
 
   useEffect(() => {
     const filteredPokemons = listaPokemons.filter((pokemon) => {
@@ -35,8 +54,6 @@ export default function Search({ listaPokemons, onFilteredPokemonsChange }) {
   const handleClearClick = () => {
     setSearchTerm("");
   };
-
-  
 
   return (
     <div>
@@ -62,14 +79,48 @@ export default function Search({ listaPokemons, onFilteredPokemonsChange }) {
             className={style.pokefilterimg}
             src="images_figma/filter.svg"
             alt=""
-            /* onClick={handleFilterClick} */
+            onClick={handleFilterClick}
           />
         </div>
       </div>
 
       {/* Mostrar resultados filtrados */}
 
-      
+      {
+        isModalOpen && (
+          <div className={style.pokemodal}>
+            <div className={style.modalContent}>
+              {/* Contenido del modal */}
+              <span className={style.close} onClick={closeModal}>
+                &times;
+                <h2 className={style.sorttitle}>Filtrar por nombre</h2>
+                <div className={style.sortoptions}>
+                  <label>
+                    <input
+                      type="radio"
+                      value="opcion1"
+                      checked={radioSeleccionado === 'opcion1'}
+                      onChange={manejarCambioRadio}
+                    />
+                    Por Nombre
+                  </label>
+
+                  <label>
+                    <input
+                      type="radio"
+                      value="opcion2"
+                      checked={radioSeleccionado === 'opcion2'}
+                      onChange={manejarCambioRadio}
+                    />
+                    Por ID
+                  </label>
+                </div>
+              </span>
+            </div>
+          </div>
+        )
+      }
     </div>
+
   );
 }

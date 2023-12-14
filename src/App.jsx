@@ -14,12 +14,17 @@ function App() {
   const updateFilteredPokemons = (filteredPokemons) => {
     setFilteredPokemons(filteredPokemons);
   };
+  const [radioValue, setRadioValue] = useState('');
+  const handleRadioChange = (value) => {
+    setRadioValue(value); // Actualiza el estado con el nuevo valor del radio
+  };
 
+  const [radioSeleccionado, setRadioSeleccionado] = useState();
   return (
     <>
       <Title />
-      <Search listaPokemons={appPokemonList} onFilteredPokemonsChange={updateFilteredPokemons} />
-      <PokemonList onPokemonListChange={updatePokemonList} listafiltrada={filteredPokemons}/>
+      <Search listaPokemons={appPokemonList} onFilteredPokemonsChange={updateFilteredPokemons} onRadioChange={handleRadioChange} />
+      <PokemonList onPokemonListChange={updatePokemonList} listafiltrada={filteredPokemons} perrito={radioSeleccionado} radioValue={radioValue}/>
     </>
   );
 }

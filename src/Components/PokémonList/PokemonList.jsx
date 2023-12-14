@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import style from './pokemonlist.module.css'
 
-export default function PokemonList({ onPokemonListChange, listafiltrada }) {
+export default function PokemonList({ onPokemonListChange, listafiltrada, radioValue }) {
     const pokeApi = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=9';
     const [pokemonList, setPokemonList] = useState([]);
     const navigate = useNavigate();
@@ -11,30 +11,12 @@ export default function PokemonList({ onPokemonListChange, listafiltrada }) {
         /* navigate('/pokemonCard', { state: p }); */
     };
 
-    const [radioSeleccionado, setRadioSeleccionado] = useState(null);
-    const manejarCambioRadio = (valor) => {
-        setRadioSeleccionado(valor);
-    };
-
-
-
-
 
 
     const sortedListByName = [...listafiltrada].sort((a, b) => a.name.localeCompare(b.name));
     const sortedListById = [...listafiltrada].sort((a, b) => a.id - b.id);
 
 
-
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
-    const handleFilterClick = () => {
-        setIsModalOpen(true);
-    };
-
-    const closeModal = () => {
-        setIsModalOpen(false);
-    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -55,12 +37,10 @@ export default function PokemonList({ onPokemonListChange, listafiltrada }) {
         };
         fetchData()
     }, []);
-
-
     return (
         <div className={style.pokelist}>
 
-            {radioSeleccionado === 'opcion1'
+            {radioValue === 'opcion1'
                 ? sortedListByName.map((pokemon) => (
                     <div className={style.pokeitem} onClick={() => handleClick(pokemon)} key={pokemon.id}>
                         <p className={style.pokeid}>#00{pokemon.id}</p>
@@ -77,40 +57,6 @@ export default function PokemonList({ onPokemonListChange, listafiltrada }) {
                         {/* <img src={pokemon.sprite.versions.generation-v.black-white.animated.front_default} alt="" /> */}
                     </div>
                 ))
-            }
-            {
-                isModalOpen && (
-                    <div className={style.pokemodal}>
-                        <div className={style.modalContent}>
-                            {/* Contenido del modal */}
-                            <span className={style.close} onClick={closeModal}>
-                                &times;
-                                <h2 className={style.sorttitle}>Filtrar por nombre</h2>
-                                <div className={style.sortoptions}>
-                                    <label>
-                                        <input
-                                            type="radio"
-                                            value="opcion1"
-                                            checked={radioSeleccionado === 'opcion1'}
-                                            onChange={() => manejarCambioRadio('opcion1')}
-                                        />
-                                        Por Nombre
-                                    </label>
-
-                                    <label>
-                                        <input
-                                            type="radio"
-                                            value="opcion2"
-                                            checked={radioSeleccionado === 'opcion2'}
-                                            onChange={() => manejarCambioRadio('opcion2')}
-                                        />
-                                        Por ID
-                                    </label>
-                                </div>
-                            </span>
-                        </div>
-                    </div>
-                )
             }
         </div>
     );
