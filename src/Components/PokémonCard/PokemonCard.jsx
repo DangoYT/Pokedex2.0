@@ -28,10 +28,27 @@ export default function PokemonCard() {
                         </li>
                     ))}
                 </ul>
+                <div>
+                    <div>
+                        {pokemon.stats.map((stat, index) => (
+                            <input
+                                type="range"
+                                id="slider"
+                                name="slider"
+                                min="0"
+                                max="100"
+                                step="1"
+                                value={stat.base_stat}
+                            />
+                        ))}
+                    </div>
+                    <div>
+                        {pokemon.stats.map((stat, index) => (
+                            <p className="pokemon__stats" key={index}>{stat.base_stat}</p>
+                        ))}
+                    </div>
 
-                {pokemon.stats.map((stat, index) => (
-                    <p className="pokemon__stats" key={index}>{stat.base_stat}</p>
-                ))}
+                </div>
             </div>
 
         </div>

@@ -6,9 +6,13 @@
 
 .fire {
     background-color: orangered;
-    color: orangered;
+    color: black;
 }
 
 .contenedor {
     background-color: white;
+}
+
+.pepito p { 
+    
 }
