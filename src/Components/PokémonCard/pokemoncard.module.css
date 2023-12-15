@@ -11,11 +11,6 @@
     background-color: white;
     color: #74CB48;
 }
-
-/* .grass li {
-    background-color: #74CB48;
-} */
-
 .poison{
     background-color: #B97FC9;
     color: black
@@ -67,6 +62,7 @@
     color: black;
 }
 
-.pokeabout {
-    font-size: 1.5em;
+.padre{
+    position: absolute;
+    z-index: 1;
 }
