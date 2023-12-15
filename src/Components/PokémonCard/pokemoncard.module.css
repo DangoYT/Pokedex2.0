@@ -6,15 +6,98 @@
     font-family: poppins;
 }
 
+.fire {
+    background-color: orangered;
+    color: black;
+    font-family: poppins;
+}
+
+.poison{
+    background-color: #B97FC9;
+    color: black
+}
+
+.flying{
+    background-color: #A891EC;
+    color: black;
+}
+
+.fighting{
+    background-color: #C12239;
+    color: black;
+}
+
+.normal{
+    background-color: #AAA67F;
+    color: black;
+}
+
+.water{
+    background-color: #6493EB;
+    color: black;
+}
+
+.ground{
+    background-color: #DEC16B;
+    color: black;
+}
+
+.rock{
+    background-color: #B69E31;
+    color: black;
+}
+
+.bug{
+    background-color: #A7B723;
+    color: black;
+}
+
+.ghost{
+    background-color: #70559B;
+    color: black;
+}
+
+.ice{
+    background-color: #9AD6DF;
+    color: black;
+}
+
+.dragon{
+    background-color: #7037FF;
+    color: black;
+}
+
+.dark{
+    background-color: #75574C;
+    color: black;
+}
+
+.steel{
+    background-color: #B7B9D0;
+    color: black;
+}
+
+.fairy{
+    background-color: #E69EAC;
+    color: black;
+}
+.electric{
+    background-color: #F9CF30;
+    color: black;
+}
+
+.psychic{
+    background-color: #FB5584;
+    color: black;
+}
+
+
 
 .grass p{
     background-color: white;
     color: #74CB48;
 }
-.poison{
-    background-color: #B97FC9;
-    color: black
-}
+
 
 .poison li {
     background-color: #B97FC9;
@@ -24,11 +107,7 @@
     color: black;
 }
 
-.fire {
-    background-color: orangered;
-    color: black;
-    font-family: poppins;
-}
+
 
 .contenedor {
     background-color: white;
