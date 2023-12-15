@@ -3,17 +3,30 @@
 
 .grass{
     background-color: #74CB48;
-    border: 1px solid black;
     font-family: poppins;
+}
+
+
+.grass p{
+    background-color: white;
     color: #74CB48;
 }
 
+/* .grass li {
+    background-color: #74CB48;
+} */
+
 .poison{
     background-color: #B97FC9;
-    color: #B97FC9;
+    color: black
 }
-.grass p{
-    background-color: white;
+
+.poison li {
+    background-color: #B97FC9;
+}
+
+.poison p{
+    color: black;
 }
 
 .fire {
@@ -28,7 +41,6 @@
 
 .pokestatscontainer{
     display: flex;
-    border: 2px black solid;
     gap: 5px;
 }
 
@@ -38,6 +50,10 @@
 
 .pokestatsvalues{
     font: 400;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
 }
 
 .pokestatsbars{
@@ -51,7 +67,6 @@
     color: black;
 }
 
-.padre{
-    position: absolute;
-    z-index: 1;
+.pokeabout {
+    font-size: 1.5em;
 }
