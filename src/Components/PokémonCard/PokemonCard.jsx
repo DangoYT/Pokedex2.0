@@ -73,11 +73,11 @@ export default function PokemonCard() {
               <p className={style.pokeabout}>About</p>
               <div>
                 <div>
-                  <p className="pokemon__height">{pokemon.height}</p>
+                  <p className={style.pokemon__height}>{pokemon.height}</p>
                 </div>
                 <div>
                   {" "}
-                  <p className="pokemon__weight">{pokemon.weight}</p>
+                  <p className={style.pokemon__weight}>{pokemon.weight}</p>
                 </div>
 
                 {/* <div>
