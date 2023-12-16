@@ -108,8 +108,8 @@
 .pokemon__header {
   display: flex;
   justify-content: space-between;
-  width: 360px;
-  padding: 20px;
+  width: 320px;
+  /* padding: 20px;*/
 }
 
 .pokemon__back {
@@ -144,13 +144,29 @@
 }
 
 .pokemon__img {
-  width: 220px;
-  height: 220px;
+  display: flex;
+  width: 200px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .contenedor {
   background-color: white;
   width: 360px;
+  position: relative;
+  top: -70px;
+}
+
+.pokemon__types{
+    position: relative;
+    top: 30px;
+    left: 130px;
+    display: flex;
+    gap: 5px;
+    border: radius 5px;
 }
 
 .pokestatscontainer {

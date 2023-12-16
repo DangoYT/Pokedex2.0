@@ -78,15 +78,16 @@ export default function PokemonCard() {
             />
             <img src={pokeGift} alt="" />
             <div className={style.contenedor}>
-              <div>
+              <div className={style.pokemon__types}>
                 {pokemon.types.map((type) => (
-                  <span className={style[type.type.name]}>
-                    {type.type.name}
-                  </span>
+                  <p className={style[type.type.name]}>{type.type.name}</p>
                 ))}
               </div>
               <p className={style.pokeabout}>About</p>
-              <div id={style.pokemon__stats__container} className={style.pokemon__stats}>
+              <div
+                id={style.pokemon__stats__container}
+                className={style.pokemon__stats}
+              >
                 <div className={style.pokemon__height}>
                   <img
                     className={style.heightimg}
