@@ -12,9 +12,11 @@ export default function PokemonList({ onPokemonListChange, listafiltrada, radioV
     };
 
 
-
     const sortedListByName = [...listafiltrada].sort((a, b) => a.name.localeCompare(b.name));
     const sortedListById = [...listafiltrada].sort((a, b) => a.id - b.id);
+
+
+    const [pokemonNumero, setPokemonNumero] = useState(0);
 
 
 
@@ -30,13 +32,17 @@ export default function PokemonList({ onPokemonListChange, listafiltrada, radioV
                 return pokemonResponse.json();
             });
 
+
             const detailedPokemonData = await Promise.all(promises);
             setPokemonList(detailedPokemonData);
 
-            onPokemonListChange(detailedPokemonData);
+            onPokemonListChange(detailedPokemonData);/* aumentar este numero */
         };
         fetchData()
     }, []);
+    const [pruebita, setPruebita] = useState(0);
+    console.log("lista filtrada pero en pokemon list",sortedListByName[0]);
+
     return (
         <div className={style.pokelist}>
 

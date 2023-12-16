@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import PokemonCard from './Components/PokémonCard/PokemonCard.jsx';
 import { register } from 'swiper/element/bundle';
+import PokemonList from './Components/PokémonList/PokemonList.jsx';
 
 register();
 
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/pokemonCard",
     element: <PokemonCard/>
+  },
+  {
+    path: "/pokemonList",
+    element: <PokemonList/>
   }
 ]);
 
