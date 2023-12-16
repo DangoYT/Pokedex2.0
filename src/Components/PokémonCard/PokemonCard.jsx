@@ -80,7 +80,9 @@ export default function PokemonCard() {
             <div className={style.contenedor}>
               <div className={style.pokemon__types}>
                 {pokemon.types.map((type) => (
-                  <p className={style[type.type.name]}>{type.type.name}</p>
+                  <p className={`${style[type.type.name]} ${style.typepill}`}>
+                    {type.type.name}
+                  </p>
                 ))}
               </div>
               <p className={style.pokeabout}>About</p>
@@ -94,8 +96,10 @@ export default function PokemonCard() {
                     src="images_figma/straighten.svg"
                     alt=""
                   />
-                  <p>Height</p>
+                  
                   <p>{pokemon.height}</p>
+                  <br />
+                  <p>Height</p>
                 </div>
                 <div className={style.pokemon__weight}>
                   {" "}
@@ -104,8 +108,10 @@ export default function PokemonCard() {
                     src="images_figma/weight.svg"
                     alt=""
                   />
-                  <p>Weight</p>
+                  
                   <p>{pokemon.weight}</p>
+                  <br />
+                  <p>Weight</p>
                 </div>
                 <div className="pokemon__abilities">
                   {pokemon.abilities.map((ability, index) => (
